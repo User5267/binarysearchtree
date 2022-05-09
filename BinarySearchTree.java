@@ -5,6 +5,8 @@ import java.util.*;
 
 
 class BinarySearchTree {
+	
+        /* Let us create following BST*/
 	public static void main (String[] args) {
 		BST binTree=new BST();
 		binTree.insert(310);
@@ -14,7 +16,7 @@ class BinarySearchTree {
 		binTree.insert(100);
 		binTree.insert(420);
 		binTree.insert(670);
-		
+		// print inorder traversal of the BST
 		binTree.inorder();
 	}
 }
@@ -27,7 +29,7 @@ class Node{
 		this.value=value;
 	}
 }
-
+//Root of BST
 class BST{
 Node root;
 
@@ -54,19 +56,20 @@ public void insert(int keys){
 		else previous.right=nodes;
 	}
 
+	
 public void inorder(){
-		Node temporary=root;
-		Stack<Node> stck=new Stack<>();
-		while (temporary!=null||!stck.isEmpty()){
-			if(temporary!=null){
-				stck.add(temporary);
-				temporary=temporary.left;
-			}
-			else {
-				temporary=stck.pop();
-				System.out.print(temporary.value+" ");
-				temporary=temporary.right;
-			}
+	Node temporary=root;
+	Stack<Node> stck=new Stack<>();
+	while (temporary!=null||!stck.isEmpty()){
+		if(temporary!=null){
+			stck.add(temporary);
+			temporary=temporary.left;
+		}
+		else {
+			temporary=stck.pop();
+			System.out.print(temporary.value + " ");
+			temporary=temporary.right;
 		}
 	}
+}
 }
